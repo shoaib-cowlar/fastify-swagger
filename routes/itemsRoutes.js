@@ -1,4 +1,5 @@
-const {getItems,getSingleItem,saveSingleItem} = require('../controllers/itemsController')
+const { getItems, getSingleItem, saveSingleItem } = require('../controllers/itemsController');
+
 const Item = {
   type: "object",
   properties: {
@@ -13,9 +14,14 @@ const getItemsOpts = {
       200: {
         type: "array",
         items: Item,
+        example:{
+            id :1,
+            name:'this is item'
+        }
       },
     },
   },
+  handler: getItems,
 };
 
 const getItemOpts = {
@@ -40,13 +46,16 @@ const getItemOpts = {
       400: {
         type: "string",
         description: "Item Not Found",
+        example:"Item not found"
       },
       500: {
         type: "string",
         description: "Some Server Error",
+        example: "Some Server Error",
       },
     },
   },
+  handler: getSingleItem,
 };
 
 const saveItemOpts = {
@@ -73,15 +82,16 @@ const saveItemOpts = {
       },
     },
   },
+  handler: saveSingleItem,
 };
 
 function itemRoutes(fastify, options, done) {
   // Define all your routes here
-  fastify.get("/items", getItemsOpts,getItems );
+  fastify.get("/items", getItemsOpts);
 
-  fastify.get("/items/:id", getItemOpts,getSingleItem );
+  fastify.get("/items/:id", getItemOpts);
 
-  fastify.post("/items",saveItemOpts, saveSingleItem);
+  fastify.post("/items", saveItemOpts);
 
   done();
 }

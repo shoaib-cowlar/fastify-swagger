@@ -2,7 +2,7 @@ const items = require("../items");
 const { v4: uuidv4 } = require("uuid");
 
 const getItems = (req, reply) => {
-  reply.send({ items });
+  reply.send( items );
 };
 
 const getSingleItem = (req, reply) => {
@@ -10,7 +10,7 @@ const getSingleItem = (req, reply) => {
     const id = req.params.id;
     let item = items.find((item) => item.id === id);
     if (item) {
-      reply.send({ item });
+      reply.send( item );
     } else {
       reply.status(400).send("Item Not Found");
     }

@@ -4,5 +4,12 @@
 GET http://127.0.0.1:5000/items HTTP/1.1
 
 ### Get Item by id 
-GET http://127.0.0.1:5000/items/2 HTTP/1.1
+GET http://127.0.0.1:5000/items/4 HTTP/1.1
 
+### Add item
+POST http://127.0.0.1:5000/items HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"New Item"
+}
