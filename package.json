@@ -1,0 +1,22 @@
+{
+  "name": "fasitfy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev" : "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.17.0",
+    "fastify-swagger": "^5.2.0",
+    "uui": "^1.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
